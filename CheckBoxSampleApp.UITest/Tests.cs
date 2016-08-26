@@ -61,6 +61,7 @@ namespace CheckBoxSampleApp.UITest
 
 			//Act
 			app.Query(x => x.Class("CheckBox").Invoke("performClick"));
+			app.Screenshot("All CheckBoxes Checked");
 
 			//Assert
 			isCheckBoxCheckedArray = app.Query(x => x.Class("CheckBox").Invoke("isChecked"));
@@ -69,6 +70,7 @@ namespace CheckBoxSampleApp.UITest
 
 			//Act
 			app.Query(x => x.Class("CheckBox").Invoke("performClick"));
+			app.Screenshot("All CheckBoxes Unchecked");
 
 			//Assert
 			isCheckBoxCheckedArray = app.Query(x => x.Class("CheckBox").Invoke("isChecked"));
