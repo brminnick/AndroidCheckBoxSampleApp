@@ -15,7 +15,7 @@ namespace CheckBoxSampleApp.UITest
 		{
 			app = ConfigureApp
 				.Android
-				.InstalledApp("CheckBoxSampleApp.CheckBoxSampleApp")
+				.InstalledApp("com.minnick.checkboxsampleapp")
 				.PreferIdeSettings()
 				.StartApp();
 
