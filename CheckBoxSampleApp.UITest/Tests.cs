@@ -53,6 +53,26 @@ namespace CheckBoxSampleApp.UITest
 			Assert.IsFalse(isCheckBoxChecked, "The check box is not checked");
 		}
 
+		[TestCase("CheckBox1", true)]
+		[TestCase("CheckBox2", true)]
+		[TestCase("CheckBox3", true)]
+		[TestCase("CheckBox1", false)]
+		[TestCase("CheckBox2", false)]
+		[TestCase("CheckBox3", false)]
+		[Test]
+		public void SetIndividualCheckBox(string textBoxContentDescription, bool isChecked)
+		{
+			//Arrange
+			bool isCheckBoxChecked;
+
+			//Act
+			SetCheckBox(textBoxContentDescription, isChecked);
+
+			//Assert
+			isCheckBoxChecked = IsCheckBoxChecked(textBoxContentDescription);
+			Assert.AreEqual(isChecked, isCheckBoxChecked);
+		}
+
 		[Test]
 		public void ToggleAllCheckBoxes()
 		{
@@ -89,6 +109,11 @@ namespace CheckBoxSampleApp.UITest
 			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))[0];
 		}
 
+		void SetCheckBox(string textBoxContentDescription, bool IsChecked)
+		{
+			app.Query(x => x.Marked(textBoxContentDescription).Invoke("setChecked", IsChecked));
+			app.Screenshot($"Set {textBoxContentDescription} to {IsChecked}");
+		}
 	}
 }
 

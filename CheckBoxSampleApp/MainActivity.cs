@@ -13,6 +13,8 @@ namespace CheckBoxSampleApp
 		{
 			base.OnCreate(savedInstanceState);
 
+			SetContentView(Resource.Layout.Main);
+
 			var checkBox1 = FindViewById<CheckBox>(Resource.Id.CheckBox1);
 			var checkBox2 = FindViewById<CheckBox>(Resource.Id.CheckBox2);
 			var checkBox3 = FindViewById<CheckBox>(Resource.Id.CheckBox3);
@@ -20,8 +22,6 @@ namespace CheckBoxSampleApp
 			checkBox1.Click += HandleCheckBoxClick;
 			checkBox2.Click += HandleCheckBoxClick;
 			checkBox3.Click += HandleCheckBoxClick;
-
-			SetContentView(Resource.Layout.Main);
 		}
 
 		void HandleCheckBoxClick(object sender, EventArgs e)

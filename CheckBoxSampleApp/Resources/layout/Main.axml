@@ -14,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="CheckBox2"
-        android:text="This is Check Box 2" />
-  <CheckBox
+        android:text="This is CheckBox 2" />
+    <CheckBox
         android:id="@+id/CheckBox3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="CheckBox3"
-        android:text="This is Check Box 3" />
+        android:text="This is CheckBox 3" />
 </LinearLayout>
