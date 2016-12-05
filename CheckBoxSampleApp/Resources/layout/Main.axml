@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="Button1"
         android:textColor="#ef4444"
-        android:text="This is a Button" />
+        android:text="Get CheckBox Status" />
     <TextView
         android:id="@+id/TextView1"
         android:layout_width="match_parent"

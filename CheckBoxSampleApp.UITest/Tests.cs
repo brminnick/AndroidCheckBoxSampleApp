@@ -3,9 +3,7 @@ using NUnit.Framework;
 
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
-
-using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
-using Xamarin.UITest.Queries;
+using System.Linq;
 
 namespace CheckBoxSampleApp.UITest
 {
@@ -48,7 +46,7 @@ namespace CheckBoxSampleApp.UITest
 			//Assert
 			var actualButtonColorAsInt = GetHexColorAsInt("Button1");
 			var actualTextViewTextColorAsInt = GetHexColorAsInt("TextView1");
-			var actualTextViewText = app.Query(x => x.Marked("TextView1"))[0]?.Text;
+			var actualTextViewText = app.Query(x => x.Marked("TextView1"))?.FirstOrDefault()?.Text;
 
 			Assert.AreEqual(expectedButtonTextColorAsInt, actualButtonColorAsInt);
 			Assert.AreEqual(expectedTextViewTextColorAsInt, actualTextViewTextColorAsInt);
@@ -132,7 +130,7 @@ namespace CheckBoxSampleApp.UITest
 
 		bool IsCheckBoxChecked(string textBoxContentDescription)
 		{
-			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))[0];
+			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))?.FirstOrDefault();
 		}
 
 		void SetCheckBox(string checkBoxContentDescription, bool IsChecked)
@@ -143,7 +141,7 @@ namespace CheckBoxSampleApp.UITest
 
 		int GetHexColorAsInt(string contentDescription)
 		{
-			return int.Parse(app.Query(x => x.Marked(contentDescription).Invoke("getCurrentTextColor"))[0]?.ToString());
+			return int.Parse(app.Query(x => x.Marked(contentDescription).Invoke("getCurrentTextColor"))?.FirstOrDefault()?.ToString());
 		}
 
 		int ConvertAndroidDrawingHexColorToInt(string colorStringAsHex)
