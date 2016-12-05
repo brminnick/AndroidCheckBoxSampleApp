@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Linq;
+
 using NUnit.Framework;
 
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
-using System.Linq;
 
 namespace CheckBoxSampleApp.UITest
 {

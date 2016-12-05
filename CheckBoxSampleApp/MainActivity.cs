@@ -1,10 +1,11 @@
 ﻿using System;
 
+using Java.Interop;
+
 using Android.OS;
 using Android.App;
 using Android.Widget;
 using Android.Graphics;
-using Java.Interop;
 
 namespace CheckBoxSampleApp
 {
