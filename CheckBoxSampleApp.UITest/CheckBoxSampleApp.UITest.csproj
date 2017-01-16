@@ -50,8 +50,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.2.0.0\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.2.0.5\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
+    <Reference Include="Accessibility" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.cs" />
@@ -70,5 +71,6 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\CheckBoxSampleApp.Shared\CheckBoxSampleApp.Shared.projitems" Label="Shared" Condition="Exists('..\CheckBoxSampleApp.Shared\CheckBoxSampleApp.Shared.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

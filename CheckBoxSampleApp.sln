@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxSampleApp", "CheckB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxSampleApp.UITest", "CheckBoxSampleApp.UITest\CheckBoxSampleApp.UITest.csproj", "{AEB39A3D-D0F9-4EB9-8363-BBF36F5BE762}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CheckBoxSampleApp.Shared", "CheckBoxSampleApp.Shared\CheckBoxSampleApp.Shared.shproj", "{256B1DE8-CA01-4A66-89A7-3500BDEF960D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

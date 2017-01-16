@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
+
 using NUnit.Framework;
 
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
 
-using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
-using Xamarin.UITest.Queries;
+using CheckBoxSampleApp.Shared;
 
 namespace CheckBoxSampleApp.UITest
 {
@@ -41,23 +42,23 @@ namespace CheckBoxSampleApp.UITest
 			var expectedTextViewText = "1 Check Box Is Checked";
 
 			//Act
-			ToggleCheckBox("CheckBox1");
-			app.Tap(x => x.Marked("Button1"));
-			app.WaitForElement(x => x.Marked("TextView1"));
+			ToggleCheckBox(AutomationConstants.CheckBox1);
+			app.Tap(x => x.Marked(AutomationConstants.Button1));
+			app.WaitForElement(x => x.Marked(AutomationConstants.TextView1));
 
 			//Assert
-			var actualButtonColorAsInt = GetHexColorAsInt("Button1");
-			var actualTextViewTextColorAsInt = GetHexColorAsInt("TextView1");
-			var actualTextViewText = app.Query(x => x.Marked("TextView1"))[0]?.Text;
+			var actualButtonColorAsInt = GetHexColorAsInt(AutomationConstants.Button1);
+			var actualTextViewTextColorAsInt = GetHexColorAsInt(AutomationConstants.TextView1);
+			var actualTextViewText = app.Query(x => x.Marked(AutomationConstants.TextView1))?.FirstOrDefault()?.Text;
 
 			Assert.AreEqual(expectedButtonTextColorAsInt, actualButtonColorAsInt);
 			Assert.AreEqual(expectedTextViewTextColorAsInt, actualTextViewTextColorAsInt);
 			Assert.AreEqual(expectedTextViewText, actualTextViewText);
 		}
 
-		[TestCase("CheckBox1")]
-		[TestCase("CheckBox2")]
-		[TestCase("CheckBox3")]
+		[TestCase(AutomationConstants.CheckBox1)]
+		[TestCase(AutomationConstants.CheckBox2)]
+		[TestCase(AutomationConstants.CheckBox3)]
 		[Test]
 		public void ToggleIndividualCheckBox(string textBoxContentDescription)
 		{
@@ -79,12 +80,12 @@ namespace CheckBoxSampleApp.UITest
 			Assert.IsFalse(isCheckBoxChecked, "The check box is not checked");
 		}
 
-		[TestCase("CheckBox1", true)]
-		[TestCase("CheckBox2", true)]
-		[TestCase("CheckBox3", true)]
-		[TestCase("CheckBox1", false)]
-		[TestCase("CheckBox2", false)]
-		[TestCase("CheckBox3", false)]
+		[TestCase(AutomationConstants.CheckBox1, true)]
+		[TestCase(AutomationConstants.CheckBox2, true)]
+		[TestCase(AutomationConstants.CheckBox3, true)]
+		[TestCase(AutomationConstants.CheckBox1, false)]
+		[TestCase(AutomationConstants.CheckBox2, false)]
+		[TestCase(AutomationConstants.CheckBox3, false)]
 		[Test]
 		public void SetIndividualCheckBox(string textBoxContentDescription, bool isChecked)
 		{
@@ -132,7 +133,7 @@ namespace CheckBoxSampleApp.UITest
 
 		bool IsCheckBoxChecked(string textBoxContentDescription)
 		{
-			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))[0];
+			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))?.FirstOrDefault();
 		}
 
 		void SetCheckBox(string checkBoxContentDescription, bool IsChecked)
@@ -143,7 +144,7 @@ namespace CheckBoxSampleApp.UITest
 
 		int GetHexColorAsInt(string contentDescription)
 		{
-			return int.Parse(app.Query(x => x.Marked(contentDescription).Invoke("getCurrentTextColor"))[0]?.ToString());
+			return int.Parse(app.Query(x => x.Marked(contentDescription).Invoke("getCurrentTextColor"))?.FirstOrDefault()?.ToString());
 		}
 
 		int ConvertAndroidDrawingHexColorToInt(string colorStringAsHex)
