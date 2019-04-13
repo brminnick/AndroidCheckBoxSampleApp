@@ -30,8 +30,8 @@ namespace CheckBoxSampleApp.UITest
         public void VerifyButtonClick_VerifyButtonColor_VerifyTextViewColor()
         {
             //Arrange
-            var expectedButtonTextColorAsInt = ConvertAndroidDrawingHexColorToInt("#ef4444");
-            var expectedTextViewTextColorAsInt = ConvertAndroidDrawingHexColorToInt("#ef4444");
+            var expectedButtonTextColorAsInt = ConvertAndroidDrawingHexColorToInt(ColorConstants.TextViewTextColorHex);
+            var expectedTextViewTextColorAsInt = ConvertAndroidDrawingHexColorToInt(ColorConstants.TextViewTextColorHex);
             var expectedTextViewText = "1 Check Box Is Checked";
 
             //Act

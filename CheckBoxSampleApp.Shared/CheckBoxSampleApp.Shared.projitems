@@ -13,5 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Constants\AutomationConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\ColorConstants.cs" />
   </ItemGroup>
 </Project>

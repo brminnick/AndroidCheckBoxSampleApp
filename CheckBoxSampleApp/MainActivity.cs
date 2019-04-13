@@ -36,6 +36,9 @@ namespace CheckBoxSampleApp
             _checkBox3.Click += HandleCheckBoxClick;
 
             AssignContentDescriptions();
+
+            _textView1.SetTextColor(Color.ParseColor(ColorConstants.TextViewTextColorHex));
+            _button1.SetTextColor(Color.ParseColor(ColorConstants.ButtonTextColorHex));
         }
 
         void AssignContentDescriptions()

@@ -22,12 +22,10 @@
         android:id="@+id/Button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ef4444"
         android:text="Get CheckBox Status" />
     <TextView
         android:id="@+id/TextView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ef4444"
         android:text="" />
 </LinearLayout>
