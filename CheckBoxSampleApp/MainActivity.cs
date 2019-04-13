@@ -49,13 +49,11 @@ namespace CheckBoxSampleApp
 
         void HandleCheckBoxClick(object sender, EventArgs e)
         {
-            var checkBox = sender as CheckBox;
-
-            if (checkBox?.ContentDescription == null)
-                return;
-
-            var checkBoxNumber = int.Parse(checkBox?.ContentDescription.Substring(8));
-            checkBox.Text = checkBox.Checked ? $"Check Box {checkBoxNumber} is Checked" : $"Check Box {checkBoxNumber} is Unchecked";
+            if (sender is CheckBox checkBox)
+            {
+                var checkBoxNumber = int.Parse(checkBox.ContentDescription.Substring(8));
+                checkBox.Text = checkBox.Checked ? $"Check Box {checkBoxNumber} is Checked" : $"Check Box {checkBoxNumber} is Unchecked";
+            }
         }
 
         void HandleButtonClick(object sender, EventArgs e)
@@ -77,7 +75,7 @@ namespace CheckBoxSampleApp
 
         #region Xamarin UITest Backdoor Methods
 #if DEBUG
-        [Export("GetColorAsInt")]
+        [Export(nameof(GetColorAsInt))]
         public string GetColorAsInt(string colorName)
         {
             int colorAsInt = Color.ParseColor(colorName);
